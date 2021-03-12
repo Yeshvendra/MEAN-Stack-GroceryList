@@ -1,0 +1,56 @@
+<div class = "container">
+    <h2 class="page-header"> Add Item </h2>
+    <form #groceryForm="ngForm" (ngSubmit)="addGrocery(groceryForm.value)">
+            <label for="name">Name</label>
+            <input
+                name="name" 
+                type="text" 
+                class="form-control" ngModel required>
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input
+                name="quantity" 
+                type="quantity"
+                value="0"
+                min="0"
+                class="form-control" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="description" class="form-control" rows="4" cols="50" ngModel>
+            </textarea>
+        </div>
+        <input type="submit" class="btn btn-success" value="Add">
+    </form>
+</div>
+<hr>
+<div class = "container">
+    <div class="row" style="padding: 10px">
+        <div class = "col-md-3">
+            <h3>Name</h3>
+        </div>
+        <div class = "col-md-2">
+            <h3>Quantity</h3>
+        </div>
+        <div class = "col-md-5">
+            <h3>Description</h3>
+        </div>
+    </div>
+    <hr>
+    <div *ngFor = "let grocery of groceries">
+        <div class="row" style="padding: 10px">
+            <div class = "col-md-3">
+                {{grocery.name}}
+            </div>
+            <div class = "col-md-2">
+                {{grocery.quantity}}
+            </div>
+            <div class = "col-md-5">
+                {{grocery.description}}
+            </div>
+            <div class = "col-md-2">
+                <button (click)="deleteGrocery(grocery._id)" class = "btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
