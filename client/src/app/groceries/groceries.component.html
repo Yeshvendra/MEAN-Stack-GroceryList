@@ -1,11 +1,13 @@
 <div class = "container">
     <h2 class="page-header"> Add Item </h2>
     <form #groceryForm="ngForm" (ngSubmit)="addGrocery(groceryForm.value)">
+        <div class="form-group">
             <label for="name">Name</label>
             <input
                 name="name" 
                 type="text" 
                 class="form-control" ngModel required>
+        </div>
         <div class="form-group">
             <label for="quantity">Quantity</label>
             <input
